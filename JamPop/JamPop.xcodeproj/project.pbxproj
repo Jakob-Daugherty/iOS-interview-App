@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3A69F5D670133F0120304B46 /* Pods_JamPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE3F58A9443D86D2A03895A /* Pods_JamPop.framework */; };
 		EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82D8206BEFC100A210BC /* AppDelegate.swift */; };
 		EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82DA206BEFC100A210BC /* MasterViewController.swift */; };
 		EFCA82DD206BEFC100A210BC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82DC206BEFC100A210BC /* DetailViewController.swift */; };
@@ -35,6 +36,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		34D40A2A4DB5E9DAA8274E3A /* Pods-JamPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamPop.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamPop/Pods-JamPop.release.xcconfig"; sourceTree = "<group>"; };
+		49E6CB9306C52CB99877DFD0 /* Pods-JamPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamPop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamPop/Pods-JamPop.debug.xcconfig"; sourceTree = "<group>"; };
+		8AE3F58A9443D86D2A03895A /* Pods_JamPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamPop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCA82D5206BEFC100A210BC /* JamPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCA82D8206BEFC100A210BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCA82DA206BEFC100A210BC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -56,6 +60,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3A69F5D670133F0120304B46 /* Pods_JamPop.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -76,6 +81,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3CB7166AED2E977C5C2B3866 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49E6CB9306C52CB99877DFD0 /* Pods-JamPop.debug.xcconfig */,
+				34D40A2A4DB5E9DAA8274E3A /* Pods-JamPop.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		EFCA82CC206BEFC100A210BC = {
 			isa = PBXGroup;
 			children = (
@@ -83,6 +97,8 @@
 				EFCA82EE206BEFC100A210BC /* JamPopTests */,
 				EFCA82F9206BEFC200A210BC /* JamPopUITests */,
 				EFCA82D6206BEFC100A210BC /* Products */,
+				3CB7166AED2E977C5C2B3866 /* Pods */,
+				FD659B97F549BED85C7450B8 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -128,6 +144,14 @@
 			path = JamPopUITests;
 			sourceTree = "<group>";
 		};
+		FD659B97F549BED85C7450B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AE3F58A9443D86D2A03895A /* Pods_JamPop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -135,9 +159,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = EFCA82FF206BEFC200A210BC /* Build configuration list for PBXNativeTarget "JamPop" */;
 			buildPhases = (
+				80EAE0A663A975DB8E483E77 /* [CP] Check Pods Manifest.lock */,
 				EFCA82D1206BEFC100A210BC /* Sources */,
 				EFCA82D2206BEFC100A210BC /* Frameworks */,
 				EFCA82D3206BEFC100A210BC /* Resources */,
+				47C10473A830739D9B6564D8 /* [CP] Embed Pods Frameworks */,
+				76AA84E0ED5C335DC13755E0 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -256,6 +283,60 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47C10473A830739D9B6564D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamPop/Pods-JamPop-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamPop/Pods-JamPop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76AA84E0ED5C335DC13755E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamPop/Pods-JamPop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80EAE0A663A975DB8E483E77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamPop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		EFCA82D1206BEFC100A210BC /* Sources */ = {
@@ -428,6 +509,7 @@
 		};
 		EFCA8300206BEFC200A210BC /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49E6CB9306C52CB99877DFD0 /* Pods-JamPop.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -443,6 +525,7 @@
 		};
 		EFCA8301206BEFC200A210BC /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34D40A2A4DB5E9DAA8274E3A /* Pods-JamPop.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
