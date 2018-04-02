@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		3A69F5D670133F0120304B46 /* Pods_JamPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE3F58A9443D86D2A03895A /* Pods_JamPop.framework */; };
+		EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B21632072AD34000E8280 /* ItunesRouter.swift */; };
+		EF4B21662072BEE1000E8280 /* AlbumInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B21652072BEE1000E8280 /* AlbumInfo.swift */; };
+		EF4B216C2072C2FF000E8280 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4B216B2072C2FF000E8280 /* Default-568h@2x.png */; };
 		EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82D8206BEFC100A210BC /* AppDelegate.swift */; };
 		EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82DA206BEFC100A210BC /* MasterViewController.swift */; };
 		EFCA82DD206BEFC100A210BC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82DC206BEFC100A210BC /* DetailViewController.swift */; };
@@ -39,6 +42,9 @@
 		34D40A2A4DB5E9DAA8274E3A /* Pods-JamPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamPop.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamPop/Pods-JamPop.release.xcconfig"; sourceTree = "<group>"; };
 		49E6CB9306C52CB99877DFD0 /* Pods-JamPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamPop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamPop/Pods-JamPop.debug.xcconfig"; sourceTree = "<group>"; };
 		8AE3F58A9443D86D2A03895A /* Pods_JamPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamPop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4B21632072AD34000E8280 /* ItunesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesRouter.swift; sourceTree = "<group>"; };
+		EF4B21652072BEE1000E8280 /* AlbumInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfo.swift; sourceTree = "<group>"; };
+		EF4B216B2072C2FF000E8280 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		EFCA82D5206BEFC100A210BC /* JamPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCA82D8206BEFC100A210BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCA82DA206BEFC100A210BC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -90,9 +96,47 @@
 			name = Pods;
 			sourceTree = "<group>";
 		};
+		EF4B21672072C170000E8280 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA82E3206BEFC100A210BC /* LaunchScreen.storyboard */,
+				EFCA82E6206BEFC100A210BC /* Info.plist */,
+				EFCA82E1206BEFC100A210BC /* Assets.xcassets */,
+				EFCA82DE206BEFC100A210BC /* Main.storyboard */,
+				EFCA82D8206BEFC100A210BC /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF4B21682072C1B5000E8280 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA82DA206BEFC100A210BC /* MasterViewController.swift */,
+				EFCA82DC206BEFC100A210BC /* DetailViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EF4B21692072C1D3000E8280 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EF4B21652072BEE1000E8280 /* AlbumInfo.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF4B216A2072C1ED000E8280 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EF4B21632072AD34000E8280 /* ItunesRouter.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
 		EFCA82CC206BEFC100A210BC = {
 			isa = PBXGroup;
 			children = (
+				EF4B216B2072C2FF000E8280 /* Default-568h@2x.png */,
 				EFCA82D7206BEFC100A210BC /* JamPop */,
 				EFCA82EE206BEFC100A210BC /* JamPopTests */,
 				EFCA82F9206BEFC200A210BC /* JamPopUITests */,
@@ -115,13 +159,10 @@
 		EFCA82D7206BEFC100A210BC /* JamPop */ = {
 			isa = PBXGroup;
 			children = (
-				EFCA82D8206BEFC100A210BC /* AppDelegate.swift */,
-				EFCA82DA206BEFC100A210BC /* MasterViewController.swift */,
-				EFCA82DC206BEFC100A210BC /* DetailViewController.swift */,
-				EFCA82DE206BEFC100A210BC /* Main.storyboard */,
-				EFCA82E1206BEFC100A210BC /* Assets.xcassets */,
-				EFCA82E3206BEFC100A210BC /* LaunchScreen.storyboard */,
-				EFCA82E6206BEFC100A210BC /* Info.plist */,
+				EF4B216A2072C1ED000E8280 /* Networking */,
+				EF4B21692072C1D3000E8280 /* Model */,
+				EF4B21682072C1B5000E8280 /* Controller */,
+				EF4B21672072C170000E8280 /* Supporting Files */,
 			);
 			path = JamPop;
 			sourceTree = "<group>";
@@ -263,6 +304,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCA82E5206BEFC100A210BC /* LaunchScreen.storyboard in Resources */,
+				EF4B216C2072C2FF000E8280 /* Default-568h@2x.png in Resources */,
 				EFCA82E2206BEFC100A210BC /* Assets.xcassets in Resources */,
 				EFCA82E0206BEFC100A210BC /* Main.storyboard in Resources */,
 			);
@@ -345,7 +387,9 @@
 			files = (
 				EFCA82DD206BEFC100A210BC /* DetailViewController.swift in Sources */,
 				EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */,
+				EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */,
 				EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */,
+				EF4B21662072BEE1000E8280 /* AlbumInfo.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -514,7 +558,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FEE4M8V5W9;
-				INFOPLIST_FILE = JamPop/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JamPop/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theARQ.JamPop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -530,7 +574,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = FEE4M8V5W9;
-				INFOPLIST_FILE = JamPop/Info.plist;
+				INFOPLIST_FILE = "$(SRCROOT)/JamPop/Supporting Files/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = theARQ.JamPop;
 				PRODUCT_NAME = "$(TARGET_NAME)";
