@@ -19,6 +19,10 @@
 		EFCA82E5206BEFC100A210BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCA82E3206BEFC100A210BC /* LaunchScreen.storyboard */; };
 		EFCA82F0206BEFC100A210BC /* JamPopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82EF206BEFC100A210BC /* JamPopTests.swift */; };
 		EFCA82FB206BEFC200A210BC /* JamPopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82FA206BEFC200A210BC /* JamPopUITests.swift */; };
+		EFDEB2D72072CE560042338B /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2D62072CE560042338B /* AlbumCell.swift */; };
+		EFDEB2D92072E70E0042338B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2D82072E70E0042338B /* Album.swift */; };
+		EFDEB2DB2072E9520042338B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2DA2072E9520042338B /* Genre.swift */; };
+		EFDEB2DD2072EC300042338B /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2DC2072EC300042338B /* QueryService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -59,6 +63,10 @@
 		EFCA82F6206BEFC200A210BC /* JamPopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamPopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCA82FA206BEFC200A210BC /* JamPopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamPopUITests.swift; sourceTree = "<group>"; };
 		EFCA82FC206BEFC200A210BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFDEB2D62072CE560042338B /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		EFDEB2D82072E70E0042338B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		EFDEB2DA2072E9520042338B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		EFDEB2DC2072EC300042338B /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -120,7 +128,9 @@
 		EF4B21692072C1D3000E8280 /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				EFDEB2D82072E70E0042338B /* Album.swift */,
 				EF4B21652072BEE1000E8280 /* AlbumInfo.swift */,
+				EFDEB2DA2072E9520042338B /* Genre.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -129,6 +139,7 @@
 			isa = PBXGroup;
 			children = (
 				EF4B21632072AD34000E8280 /* ItunesRouter.swift */,
+				EFDEB2DC2072EC300042338B /* QueryService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -159,6 +170,7 @@
 		EFCA82D7206BEFC100A210BC /* JamPop */ = {
 			isa = PBXGroup;
 			children = (
+				EFDEB2D32072CCF90042338B /* View */,
 				EF4B216A2072C1ED000E8280 /* Networking */,
 				EF4B21692072C1D3000E8280 /* Model */,
 				EF4B21682072C1B5000E8280 /* Controller */,
@@ -183,6 +195,14 @@
 				EFCA82FC206BEFC200A210BC /* Info.plist */,
 			);
 			path = JamPopUITests;
+			sourceTree = "<group>";
+		};
+		EFDEB2D32072CCF90042338B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFDEB2D62072CE560042338B /* AlbumCell.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		FD659B97F549BED85C7450B8 /* Frameworks */ = {
@@ -389,7 +409,11 @@
 				EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */,
 				EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */,
 				EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */,
+				EFDEB2DD2072EC300042338B /* QueryService.swift in Sources */,
 				EF4B21662072BEE1000E8280 /* AlbumInfo.swift in Sources */,
+				EFDEB2D92072E70E0042338B /* Album.swift in Sources */,
+				EFDEB2D72072CE560042338B /* AlbumCell.swift in Sources */,
+				EFDEB2DB2072E9520042338B /* Genre.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
