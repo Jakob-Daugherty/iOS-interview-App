@@ -17,6 +17,7 @@ class AlbumCell: UITableViewCell {
     var delegate: AlbumCellDelegate?
     
     @IBOutlet weak var titleLabel: UILabel!
+    @IBOutlet weak var subtitleLabel: UILabel!
     
 
     override func awakeFromNib() {

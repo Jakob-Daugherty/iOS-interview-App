@@ -15,8 +15,7 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
     let queryService = QueryService()
-
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
@@ -96,6 +95,11 @@ class MasterViewController: UITableViewController {
 
         let object = objects[indexPath.row] as! Album
         cell.textLabel!.text = object.name
+        cell.detailTextLabel!.text = object.artistName
+        let image = UIImage(data: try! Data(contentsOf: URL(string: object.artworkUrl100)!))!
+        //let image = queryService.getAlbumArt(object.artworkUrl100)
+        cell.imageView?.image = image 
+//        cell.imageView?.image = object.artworkUrl100.
         return cell
     }
 

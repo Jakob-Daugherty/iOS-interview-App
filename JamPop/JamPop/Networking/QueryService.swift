@@ -7,6 +7,7 @@
 //
 
 import Foundation
+import UIKit
 
 // Runs query data task, and stores results in array of Albums
 class QueryService {
@@ -21,6 +22,26 @@ class QueryService {
     let defaultSession = URLSession(configuration: .default)
     // 2
     var dataTask: URLSessionDataTask?
+    var artTask: URLSessionDataTask?
+    
+    func getAlbumArt(_ url: String) -> UIImage? {
+        var image: UIImage?
+        artTask?.cancel()
+        if var urlComponents = URLComponents(string: url ) {
+            guard let url = urlComponents.url else { return nil }
+            artTask = defaultSession.dataTask(with: url) { data, response, error in defer { self.artTask = nil}
+                if let error = error {
+                    self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+                } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                    image = UIImage(data: data)
+                    
+                    }
+                }
+            }
+            artTask?.resume()
+        return image
+        }
+    
     
     func getAlbumResults(completion: @escaping QueryResult) {
         // 1
@@ -45,6 +66,10 @@ class QueryService {
             dataTask?.resume()
         }
     }
+    
+//    fileprivate func updateImage(_ data: Data) -> UIImage {
+//        return UIImage
+//    }
     
     fileprivate func updateAlbumResults(_ data: Data) {
         var response: JSONDictionary?
@@ -102,8 +127,8 @@ class QueryService {
                 let artistId = Int(artistIdstr),
                 let artistUrlstr = albumDictionary["artistUrl"] as? String,
                 let artistUrl = URL(string: artistUrlstr),
-                let artworkUrl100str = albumDictionary["artworkUrl100"] as? String,
-                let artworkUrl100 = URL(string: artworkUrl100str),
+                let artworkUrl100 = albumDictionary["artworkUrl100"] as? String,
+                //let artworkUrl100 = URL(string: artworkUrl100str),
                 let genresArray = albumDictionary["genres"] as? [Any],
                 let urlstr = albumDictionary["url"] as? String,
                 let url = URL(string: urlstr) {

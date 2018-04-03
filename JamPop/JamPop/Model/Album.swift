@@ -21,12 +21,12 @@ class Album {
     let copyright: String
     let artistId: Int
     let artistUrl: URL
-    let artworkUrl100: URL
+    let artworkUrl100: String
     let genres: [Genre]
     let url: URL
     let index: Int
     
-    init(artistName: String, id: Int, releaseDate: String, name: String, kind: String, copyright: String, artistId: Int, artistUrl: URL, artworkUrl100: URL, genres: [Genre], url: URL, index: Int) {
+    init(artistName: String, id: Int, releaseDate: String, name: String, kind: String, copyright: String, artistId: Int, artistUrl: URL, artworkUrl100: String, genres: [Genre], url: URL, index: Int) {
         self.artistName = artistName
         self.id = id
         self.releaseDate = releaseDate
