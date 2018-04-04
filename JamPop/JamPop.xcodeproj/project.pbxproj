@@ -23,6 +23,12 @@
 		EFDEB2D92072E70E0042338B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2D82072E70E0042338B /* Album.swift */; };
 		EFDEB2DB2072E9520042338B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2DA2072E9520042338B /* Genre.swift */; };
 		EFDEB2DD2072EC300042338B /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2DC2072EC300042338B /* QueryService.swift */; };
+		EFDEB2DF2073EBA80042338B /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2DE2073EBA80042338B /* TrackCell.swift */; };
+		EFDEB2E12073EBFA0042338B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E02073EBFA0042338B /* Track.swift */; };
+		EFDEB2E32073EC200042338B /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E22073EC200042338B /* Download.swift */; };
+		EFDEB2E52073EC840042338B /* DetailVC+URLSessionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */; };
+		EFDEB2E72073EDA90042338B /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E62073EDA90042338B /* DownloadService.swift */; };
+		EFDEB2EB2073FD010042338B /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -67,6 +73,12 @@
 		EFDEB2D82072E70E0042338B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
 		EFDEB2DA2072E9520042338B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
 		EFDEB2DC2072EC300042338B /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		EFDEB2DE2073EBA80042338B /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		EFDEB2E02073EBFA0042338B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		EFDEB2E22073EC200042338B /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVC+URLSessionDelegates.swift"; sourceTree = "<group>"; };
+		EFDEB2E62073EDA90042338B /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +133,8 @@
 			children = (
 				EFCA82DA206BEFC100A210BC /* MasterViewController.swift */,
 				EFCA82DC206BEFC100A210BC /* DetailViewController.swift */,
+				EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */,
+				EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -131,6 +145,8 @@
 				EFDEB2D82072E70E0042338B /* Album.swift */,
 				EF4B21652072BEE1000E8280 /* AlbumInfo.swift */,
 				EFDEB2DA2072E9520042338B /* Genre.swift */,
+				EFDEB2E02073EBFA0042338B /* Track.swift */,
+				EFDEB2E22073EC200042338B /* Download.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -140,6 +156,7 @@
 			children = (
 				EF4B21632072AD34000E8280 /* ItunesRouter.swift */,
 				EFDEB2DC2072EC300042338B /* QueryService.swift */,
+				EFDEB2E62073EDA90042338B /* DownloadService.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -201,6 +218,7 @@
 			isa = PBXGroup;
 			children = (
 				EFDEB2D62072CE560042338B /* AlbumCell.swift */,
+				EFDEB2DE2073EBA80042338B /* TrackCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -406,12 +424,18 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCA82DD206BEFC100A210BC /* DetailViewController.swift in Sources */,
+				EFDEB2E72073EDA90042338B /* DownloadService.swift in Sources */,
+				EFDEB2E12073EBFA0042338B /* Track.swift in Sources */,
 				EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */,
+				EFDEB2E52073EC840042338B /* DetailVC+URLSessionDelegates.swift in Sources */,
 				EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */,
+				EFDEB2EB2073FD010042338B /* DetailTableViewController.swift in Sources */,
 				EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */,
 				EFDEB2DD2072EC300042338B /* QueryService.swift in Sources */,
+				EFDEB2DF2073EBA80042338B /* TrackCell.swift in Sources */,
 				EF4B21662072BEE1000E8280 /* AlbumInfo.swift in Sources */,
 				EFDEB2D92072E70E0042338B /* Album.swift in Sources */,
+				EFDEB2E32073EC200042338B /* Download.swift in Sources */,
 				EFDEB2D72072CE560042338B /* AlbumCell.swift in Sources */,
 				EFDEB2DB2072E9520042338B /* Genre.swift in Sources */,
 			);

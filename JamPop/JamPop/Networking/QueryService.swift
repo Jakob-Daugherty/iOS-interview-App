@@ -14,7 +14,9 @@ class QueryService {
     
     typealias JSONDictionary = [String: Any]
     typealias QueryResult = ([Album]?, String) -> ()
+    typealias TrackQueryResult = ([Track]?, String) -> ()
     
+    var tracks: [Track] = []
     var albums: [Album] = []
     var errorMessage = ""
     
@@ -23,6 +25,63 @@ class QueryService {
     // 2
     var dataTask: URLSessionDataTask?
     var artTask: URLSessionDataTask?
+    var trackTask: URLSessionDataTask?
+    
+    func getSearchResults(searchTerm: String, completion: @escaping TrackQueryResult) {
+        // 1 - For a new user query, you can cancel the data task if it already exists, because you want to resue the data task object for this new query.
+        trackTask?.cancel()
+        // 2 - To include the user's search string in the query URL, you create a URLComponents object from the iTunes Search base URL, then set its query string: this ensures that characters in the search string are properly escaped.
+        if var urlComponents = URLComponents(string: "https://itunes.apple.com/search") {
+            urlComponents.query = "media=music&entity=song&term=\(searchTerm)"
+            // 3 - The url property of urlComponents might be nil, so you optional-bind it to url.
+            guard let url = urlComponents.url else { return }
+            // 4 - From the session you created, you initialize a URLSessionDataTask with the query url and a completion handler to call when the data task completes.
+            trackTask = defaultSession.dataTask(with: url) { data, response, error in defer { self.trackTask = nil }
+                // 5 - If the HTTP request is successful, you call the helper method updateSearchResults(_:), which parses the response data into the tracks array.
+                if let error = error {
+                    self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+                } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
+                    self.updateSearchResults(data)
+                    // 6 - You switch the main queue to pass tracks to the completion handler in SearchVC+SearchBarDelegate.swift
+                    DispatchQueue.main.async {
+                        completion(self.tracks, self.errorMessage)
+                    }
+                }
+            }
+            // 7 - All tasks start in a suspended by default; calling resume() starts the data task.
+            trackTask?.resume()
+        }
+    }
+    
+    fileprivate func updateSearchResults(_ data: Data) {
+        var response: JSONDictionary?
+        tracks.removeAll()
+        
+        do {
+            response = try JSONSerialization.jsonObject(with: data, options: []) as? JSONDictionary
+        } catch let parseError as NSError {
+            errorMessage += "JSONSerialization error: \(parseError.localizedDescription)\n"
+            return
+        }
+        
+        guard let array = response!["results"] as? [Any] else {
+            errorMessage += "Dictionary does not contain results key\n"
+            return
+        }
+        var index = 0
+        for trackDictionary in array {
+            if let trackDictionary = trackDictionary as? JSONDictionary,
+                let previewURLString = trackDictionary["previewUrl"] as? String,
+                let previewURL = URL(string: previewURLString),
+                let name = trackDictionary["trackName"] as? String,
+                let artist = trackDictionary["artistName"] as? String {
+                tracks.append(Track(name: name, artist: artist, previewURL: previewURL, index: index))
+                index += 1
+            } else {
+                errorMessage += "Problem parsing trackDictionary\n"
+            }
+        }
+    }
     
     func getAlbumArt(_ url: String) -> UIImage? {
         var image: UIImage?

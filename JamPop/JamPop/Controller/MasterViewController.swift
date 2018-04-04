@@ -20,6 +20,7 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
+        self.tableView.rowHeight = 100.0 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         queryService.getAlbumResults() { results, errorMessage in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -81,6 +82,10 @@ class MasterViewController: UITableViewController {
     }
 
     // MARK: - Table View
+    
+    func CGRectMake(_ x: CGFloat, _ y: CGFloat, _ width: CGFloat, _ height: CGFloat) -> CGRect {
+        return CGRect(x: x, y: y, width: width, height: height)
+    }
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 1
@@ -96,9 +101,18 @@ class MasterViewController: UITableViewController {
         let object = objects[indexPath.row] as! Album
         cell.textLabel!.text = object.name
         cell.detailTextLabel!.text = object.artistName
+        //let imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
+        
         let image = UIImage(data: try! Data(contentsOf: URL(string: object.artworkUrl100)!))!
+        //imageView.image = image
+        //Just add imageView as subview of cell
+        //cell.addSubview(imageView)
+        //cell.sendSubview(toBack: imageView)
+        //cell.backgroundView = UIView()
+        //cell.backgroundView!.addSubview(imageView)
         //let image = queryService.getAlbumArt(object.artworkUrl100)
-        cell.imageView?.image = image 
+        cell.imageView?.image = image
+        cell.backgroundColor = colorForIndex(index: indexPath.row)
 //        cell.imageView?.image = object.artworkUrl100.
         return cell
     }
@@ -116,6 +130,17 @@ class MasterViewController: UITableViewController {
             // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view.
         }
     }
+    
+    func colorForIndex(index: Int) -> UIColor {
+        let itemCount = objects.count - 1
+        let color = (CGFloat(index) / CGFloat(itemCount)) * 0.6
+        return UIColor(red: 0.0, green: color, blue: 1.0, alpha: 1.0)
+    }
+    
+//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
+//                            forRowAtIndexPath indexPath: NSIndexPath) {
+//        cell.backgroundColor = colorForIndex(index: indexPath.row)
+//    }
 
 
 }
