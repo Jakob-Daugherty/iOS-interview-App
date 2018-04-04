@@ -1,0 +1,742 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		3A69F5D670133F0120304B46 /* Pods_JamPop.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 8AE3F58A9443D86D2A03895A /* Pods_JamPop.framework */; };
+		EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B21632072AD34000E8280 /* ItunesRouter.swift */; };
+		EF4B21662072BEE1000E8280 /* AlbumInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B21652072BEE1000E8280 /* AlbumInfo.swift */; };
+		EF4B216C2072C2FF000E8280 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4B216B2072C2FF000E8280 /* Default-568h@2x.png */; };
+		EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82D8206BEFC100A210BC /* AppDelegate.swift */; };
+		EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82DA206BEFC100A210BC /* MasterViewController.swift */; };
+		EFCA82DD206BEFC100A210BC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82DC206BEFC100A210BC /* DetailViewController.swift */; };
+		EFCA82E0206BEFC100A210BC /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCA82DE206BEFC100A210BC /* Main.storyboard */; };
+		EFCA82E2206BEFC100A210BC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EFCA82E1206BEFC100A210BC /* Assets.xcassets */; };
+		EFCA82E5206BEFC100A210BC /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFCA82E3206BEFC100A210BC /* LaunchScreen.storyboard */; };
+		EFCA82F0206BEFC100A210BC /* JamPopTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82EF206BEFC100A210BC /* JamPopTests.swift */; };
+		EFCA82FB206BEFC200A210BC /* JamPopUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82FA206BEFC200A210BC /* JamPopUITests.swift */; };
+		EFDEB2D72072CE560042338B /* AlbumCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2D62072CE560042338B /* AlbumCell.swift */; };
+		EFDEB2D92072E70E0042338B /* Album.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2D82072E70E0042338B /* Album.swift */; };
+		EFDEB2DB2072E9520042338B /* Genre.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2DA2072E9520042338B /* Genre.swift */; };
+		EFDEB2DD2072EC300042338B /* QueryService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2DC2072EC300042338B /* QueryService.swift */; };
+		EFDEB2DF2073EBA80042338B /* TrackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2DE2073EBA80042338B /* TrackCell.swift */; };
+		EFDEB2E12073EBFA0042338B /* Track.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E02073EBFA0042338B /* Track.swift */; };
+		EFDEB2E32073EC200042338B /* Download.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E22073EC200042338B /* Download.swift */; };
+		EFDEB2E52073EC840042338B /* DetailVC+URLSessionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */; };
+		EFDEB2E72073EDA90042338B /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E62073EDA90042338B /* DownloadService.swift */; };
+		EFDEB2EB2073FD010042338B /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		EFCA82EC206BEFC100A210BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFCA82CD206BEFC100A210BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFCA82D4206BEFC100A210BC;
+			remoteInfo = JamPop;
+		};
+		EFCA82F7206BEFC200A210BC /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = EFCA82CD206BEFC100A210BC /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = EFCA82D4206BEFC100A210BC;
+			remoteInfo = JamPop;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		34D40A2A4DB5E9DAA8274E3A /* Pods-JamPop.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamPop.release.xcconfig"; path = "Pods/Target Support Files/Pods-JamPop/Pods-JamPop.release.xcconfig"; sourceTree = "<group>"; };
+		49E6CB9306C52CB99877DFD0 /* Pods-JamPop.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JamPop.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JamPop/Pods-JamPop.debug.xcconfig"; sourceTree = "<group>"; };
+		8AE3F58A9443D86D2A03895A /* Pods_JamPop.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JamPop.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EF4B21632072AD34000E8280 /* ItunesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesRouter.swift; sourceTree = "<group>"; };
+		EF4B21652072BEE1000E8280 /* AlbumInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfo.swift; sourceTree = "<group>"; };
+		EF4B216B2072C2FF000E8280 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EFCA82D5206BEFC100A210BC /* JamPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFCA82D8206BEFC100A210BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		EFCA82DA206BEFC100A210BC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
+		EFCA82DC206BEFC100A210BC /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		EFCA82DF206BEFC100A210BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		EFCA82E1206BEFC100A210BC /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		EFCA82E4206BEFC100A210BC /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		EFCA82E6206BEFC100A210BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFCA82EB206BEFC100A210BC /* JamPopTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamPopTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFCA82EF206BEFC100A210BC /* JamPopTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamPopTests.swift; sourceTree = "<group>"; };
+		EFCA82F1206BEFC200A210BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFCA82F6206BEFC200A210BC /* JamPopUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = JamPopUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		EFCA82FA206BEFC200A210BC /* JamPopUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JamPopUITests.swift; sourceTree = "<group>"; };
+		EFCA82FC206BEFC200A210BC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		EFDEB2D62072CE560042338B /* AlbumCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumCell.swift; sourceTree = "<group>"; };
+		EFDEB2D82072E70E0042338B /* Album.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Album.swift; sourceTree = "<group>"; };
+		EFDEB2DA2072E9520042338B /* Genre.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Genre.swift; sourceTree = "<group>"; };
+		EFDEB2DC2072EC300042338B /* QueryService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QueryService.swift; sourceTree = "<group>"; };
+		EFDEB2DE2073EBA80042338B /* TrackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrackCell.swift; sourceTree = "<group>"; };
+		EFDEB2E02073EBFA0042338B /* Track.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Track.swift; sourceTree = "<group>"; };
+		EFDEB2E22073EC200042338B /* Download.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Download.swift; sourceTree = "<group>"; };
+		EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVC+URLSessionDelegates.swift"; sourceTree = "<group>"; };
+		EFDEB2E62073EDA90042338B /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
+		EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		EFCA82D2206BEFC100A210BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				3A69F5D670133F0120304B46 /* Pods_JamPop.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFCA82E8206BEFC100A210BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFCA82F3206BEFC200A210BC /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		3CB7166AED2E977C5C2B3866 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				49E6CB9306C52CB99877DFD0 /* Pods-JamPop.debug.xcconfig */,
+				34D40A2A4DB5E9DAA8274E3A /* Pods-JamPop.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		EF4B21672072C170000E8280 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA82E3206BEFC100A210BC /* LaunchScreen.storyboard */,
+				EFCA82E6206BEFC100A210BC /* Info.plist */,
+				EFCA82E1206BEFC100A210BC /* Assets.xcassets */,
+				EFCA82DE206BEFC100A210BC /* Main.storyboard */,
+				EFCA82D8206BEFC100A210BC /* AppDelegate.swift */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EF4B21682072C1B5000E8280 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA82DA206BEFC100A210BC /* MasterViewController.swift */,
+				EFCA82DC206BEFC100A210BC /* DetailViewController.swift */,
+				EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */,
+				EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EF4B21692072C1D3000E8280 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				EFDEB2D82072E70E0042338B /* Album.swift */,
+				EF4B21652072BEE1000E8280 /* AlbumInfo.swift */,
+				EFDEB2DA2072E9520042338B /* Genre.swift */,
+				EFDEB2E02073EBFA0042338B /* Track.swift */,
+				EFDEB2E22073EC200042338B /* Download.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		EF4B216A2072C1ED000E8280 /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				EF4B21632072AD34000E8280 /* ItunesRouter.swift */,
+				EFDEB2DC2072EC300042338B /* QueryService.swift */,
+				EFDEB2E62073EDA90042338B /* DownloadService.swift */,
+			);
+			path = Networking;
+			sourceTree = "<group>";
+		};
+		EFCA82CC206BEFC100A210BC = {
+			isa = PBXGroup;
+			children = (
+				EF4B216B2072C2FF000E8280 /* Default-568h@2x.png */,
+				EFCA82D7206BEFC100A210BC /* JamPop */,
+				EFCA82EE206BEFC100A210BC /* JamPopTests */,
+				EFCA82F9206BEFC200A210BC /* JamPopUITests */,
+				EFCA82D6206BEFC100A210BC /* Products */,
+				3CB7166AED2E977C5C2B3866 /* Pods */,
+				FD659B97F549BED85C7450B8 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		EFCA82D6206BEFC100A210BC /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA82D5206BEFC100A210BC /* JamPop.app */,
+				EFCA82EB206BEFC100A210BC /* JamPopTests.xctest */,
+				EFCA82F6206BEFC200A210BC /* JamPopUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		EFCA82D7206BEFC100A210BC /* JamPop */ = {
+			isa = PBXGroup;
+			children = (
+				EFDEB2D32072CCF90042338B /* View */,
+				EF4B216A2072C1ED000E8280 /* Networking */,
+				EF4B21692072C1D3000E8280 /* Model */,
+				EF4B21682072C1B5000E8280 /* Controller */,
+				EF4B21672072C170000E8280 /* Supporting Files */,
+			);
+			path = JamPop;
+			sourceTree = "<group>";
+		};
+		EFCA82EE206BEFC100A210BC /* JamPopTests */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA82EF206BEFC100A210BC /* JamPopTests.swift */,
+				EFCA82F1206BEFC200A210BC /* Info.plist */,
+			);
+			path = JamPopTests;
+			sourceTree = "<group>";
+		};
+		EFCA82F9206BEFC200A210BC /* JamPopUITests */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA82FA206BEFC200A210BC /* JamPopUITests.swift */,
+				EFCA82FC206BEFC200A210BC /* Info.plist */,
+			);
+			path = JamPopUITests;
+			sourceTree = "<group>";
+		};
+		EFDEB2D32072CCF90042338B /* View */ = {
+			isa = PBXGroup;
+			children = (
+				EFDEB2D62072CE560042338B /* AlbumCell.swift */,
+				EFDEB2DE2073EBA80042338B /* TrackCell.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FD659B97F549BED85C7450B8 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				8AE3F58A9443D86D2A03895A /* Pods_JamPop.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		EFCA82D4206BEFC100A210BC /* JamPop */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFCA82FF206BEFC200A210BC /* Build configuration list for PBXNativeTarget "JamPop" */;
+			buildPhases = (
+				80EAE0A663A975DB8E483E77 /* [CP] Check Pods Manifest.lock */,
+				EFCA82D1206BEFC100A210BC /* Sources */,
+				EFCA82D2206BEFC100A210BC /* Frameworks */,
+				EFCA82D3206BEFC100A210BC /* Resources */,
+				47C10473A830739D9B6564D8 /* [CP] Embed Pods Frameworks */,
+				76AA84E0ED5C335DC13755E0 /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = JamPop;
+			productName = JamPop;
+			productReference = EFCA82D5206BEFC100A210BC /* JamPop.app */;
+			productType = "com.apple.product-type.application";
+		};
+		EFCA82EA206BEFC100A210BC /* JamPopTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFCA8302206BEFC200A210BC /* Build configuration list for PBXNativeTarget "JamPopTests" */;
+			buildPhases = (
+				EFCA82E7206BEFC100A210BC /* Sources */,
+				EFCA82E8206BEFC100A210BC /* Frameworks */,
+				EFCA82E9206BEFC100A210BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFCA82ED206BEFC100A210BC /* PBXTargetDependency */,
+			);
+			name = JamPopTests;
+			productName = JamPopTests;
+			productReference = EFCA82EB206BEFC100A210BC /* JamPopTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		EFCA82F5206BEFC200A210BC /* JamPopUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = EFCA8305206BEFC200A210BC /* Build configuration list for PBXNativeTarget "JamPopUITests" */;
+			buildPhases = (
+				EFCA82F2206BEFC200A210BC /* Sources */,
+				EFCA82F3206BEFC200A210BC /* Frameworks */,
+				EFCA82F4206BEFC200A210BC /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				EFCA82F8206BEFC200A210BC /* PBXTargetDependency */,
+			);
+			name = JamPopUITests;
+			productName = JamPopUITests;
+			productReference = EFCA82F6206BEFC200A210BC /* JamPopUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		EFCA82CD206BEFC100A210BC /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 0910;
+				LastUpgradeCheck = 0910;
+				ORGANIZATIONNAME = "Jakob Daugherty";
+				TargetAttributes = {
+					EFCA82D4206BEFC100A210BC = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+					};
+					EFCA82EA206BEFC100A210BC = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EFCA82D4206BEFC100A210BC;
+					};
+					EFCA82F5206BEFC200A210BC = {
+						CreatedOnToolsVersion = 9.1;
+						ProvisioningStyle = Automatic;
+						TestTargetID = EFCA82D4206BEFC100A210BC;
+					};
+				};
+			};
+			buildConfigurationList = EFCA82D0206BEFC100A210BC /* Build configuration list for PBXProject "JamPop" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EFCA82CC206BEFC100A210BC;
+			productRefGroup = EFCA82D6206BEFC100A210BC /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				EFCA82D4206BEFC100A210BC /* JamPop */,
+				EFCA82EA206BEFC100A210BC /* JamPopTests */,
+				EFCA82F5206BEFC200A210BC /* JamPopUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		EFCA82D3206BEFC100A210BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFCA82E5206BEFC100A210BC /* LaunchScreen.storyboard in Resources */,
+				EF4B216C2072C2FF000E8280 /* Default-568h@2x.png in Resources */,
+				EFCA82E2206BEFC100A210BC /* Assets.xcassets in Resources */,
+				EFCA82E0206BEFC100A210BC /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFCA82E9206BEFC100A210BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFCA82F4206BEFC200A210BC /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		47C10473A830739D9B6564D8 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-JamPop/Pods-JamPop-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamPop/Pods-JamPop-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		76AA84E0ED5C335DC13755E0 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JamPop/Pods-JamPop-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		80EAE0A663A975DB8E483E77 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JamPop-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		EFCA82D1206BEFC100A210BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFCA82DD206BEFC100A210BC /* DetailViewController.swift in Sources */,
+				EFDEB2E72073EDA90042338B /* DownloadService.swift in Sources */,
+				EFDEB2E12073EBFA0042338B /* Track.swift in Sources */,
+				EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */,
+				EFDEB2E52073EC840042338B /* DetailVC+URLSessionDelegates.swift in Sources */,
+				EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */,
+				EFDEB2EB2073FD010042338B /* DetailTableViewController.swift in Sources */,
+				EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */,
+				EFDEB2DD2072EC300042338B /* QueryService.swift in Sources */,
+				EFDEB2DF2073EBA80042338B /* TrackCell.swift in Sources */,
+				EF4B21662072BEE1000E8280 /* AlbumInfo.swift in Sources */,
+				EFDEB2D92072E70E0042338B /* Album.swift in Sources */,
+				EFDEB2E32073EC200042338B /* Download.swift in Sources */,
+				EFDEB2D72072CE560042338B /* AlbumCell.swift in Sources */,
+				EFDEB2DB2072E9520042338B /* Genre.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFCA82E7206BEFC100A210BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFCA82F0206BEFC100A210BC /* JamPopTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		EFCA82F2206BEFC200A210BC /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				EFCA82FB206BEFC200A210BC /* JamPopUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		EFCA82ED206BEFC100A210BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFCA82D4206BEFC100A210BC /* JamPop */;
+			targetProxy = EFCA82EC206BEFC100A210BC /* PBXContainerItemProxy */;
+		};
+		EFCA82F8206BEFC200A210BC /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = EFCA82D4206BEFC100A210BC /* JamPop */;
+			targetProxy = EFCA82F7206BEFC200A210BC /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		EFCA82DE206BEFC100A210BC /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFCA82DF206BEFC100A210BC /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		EFCA82E3206BEFC100A210BC /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				EFCA82E4206BEFC100A210BC /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		EFCA82FD206BEFC200A210BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		EFCA82FE206BEFC200A210BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.1;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				SWIFT_OPTIMIZATION_LEVEL = "-Owholemodule";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		EFCA8300206BEFC200A210BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49E6CB9306C52CB99877DFD0 /* Pods-JamPop.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FEE4M8V5W9;
+				INFOPLIST_FILE = "$(SRCROOT)/JamPop/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = theARQ.JamPop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		EFCA8301206BEFC200A210BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 34D40A2A4DB5E9DAA8274E3A /* Pods-JamPop.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FEE4M8V5W9;
+				INFOPLIST_FILE = "$(SRCROOT)/JamPop/Supporting Files/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = theARQ.JamPop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		EFCA8303206BEFC200A210BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FEE4M8V5W9;
+				INFOPLIST_FILE = JamPopTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = theARQ.JamPopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JamPop.app/JamPop";
+			};
+			name = Debug;
+		};
+		EFCA8304206BEFC200A210BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FEE4M8V5W9;
+				INFOPLIST_FILE = JamPopTests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = theARQ.JamPopTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/JamPop.app/JamPop";
+			};
+			name = Release;
+		};
+		EFCA8306206BEFC200A210BC /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FEE4M8V5W9;
+				INFOPLIST_FILE = JamPopUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = theARQ.JamPopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JamPop;
+			};
+			name = Debug;
+		};
+		EFCA8307206BEFC200A210BC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FEE4M8V5W9;
+				INFOPLIST_FILE = JamPopUITests/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = theARQ.JamPopUITests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = JamPop;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		EFCA82D0206BEFC100A210BC /* Build configuration list for PBXProject "JamPop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFCA82FD206BEFC200A210BC /* Debug */,
+				EFCA82FE206BEFC200A210BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFCA82FF206BEFC200A210BC /* Build configuration list for PBXNativeTarget "JamPop" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFCA8300206BEFC200A210BC /* Debug */,
+				EFCA8301206BEFC200A210BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFCA8302206BEFC200A210BC /* Build configuration list for PBXNativeTarget "JamPopTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFCA8303206BEFC200A210BC /* Debug */,
+				EFCA8304206BEFC200A210BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		EFCA8305206BEFC200A210BC /* Build configuration list for PBXNativeTarget "JamPopUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				EFCA8306206BEFC200A210BC /* Debug */,
+				EFCA8307206BEFC200A210BC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = EFCA82CD206BEFC100A210BC /* Project object */;
+}
