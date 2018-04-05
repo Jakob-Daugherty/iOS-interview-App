@@ -67,3 +67,4 @@ fastlane/screenshots
 fastlane/test_output
 
 JamPop/JamPop/\.DS_Store
+*.DS_Store
