@@ -79,6 +79,7 @@ class DetailViewController: UIViewController {
                 genreLabel.text = genre?.name
             }
             let searchText = detail.name
+            
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
             queryService.getSearchResults(searchTerm: searchText) { results, errorMessage in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
@@ -103,6 +104,7 @@ class DetailViewController: UIViewController {
         super.viewDidLoad()
         self.detailTableView.dataSource = self
         self.detailTableView.delegate = self
+        
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
         downloadService.downloadsSession = downloadsSession
@@ -162,6 +164,8 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
         cell.selectionStyle = track.downloaded ? UITableViewCellSelectionStyle.gray : UITableViewCellSelectionStyle.none
         cell.downloadButton.isHidden = track.downloaded || showDownloadControls
         
+        cell.backgroundColor = colorForIndex(index: indexPath.row)
+        
         return cell
     }
     
@@ -176,6 +180,12 @@ extension DetailViewController: UITableViewDataSource, UITableViewDelegate {
             playDownload(track)
         }
         tableView.deselectRow(at: indexPath, animated: true)
+    }
+    
+    func colorForIndex(index: Int) -> UIColor {
+        let itemCount = searchResults.count - 1
+        let color = (CGFloat(index) / CGFloat(itemCount)) * 0.6
+        return UIColor(red: 0.0, green: color, blue: 0.5, alpha: 1.0)
     }
 }
 
