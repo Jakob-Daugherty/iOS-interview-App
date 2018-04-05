@@ -7,7 +7,7 @@
 //
 
 import Foundation
-
+import UIKit
 
 // Query service creates Track objects
 
@@ -25,6 +25,8 @@ class Album {
     let genres: [Genre]
     let url: URL
     let index: Int
+    let artworkImage: UIImage
+    var bgURLSession: URLSession?
     
     init(artistName: String, id: Int, releaseDate: String, name: String, kind: String, copyright: String, artistId: Int, artistUrl: URL, artworkUrl100: String, genres: [Genre], url: URL, index: Int) {
         self.artistName = artistName
@@ -38,6 +40,8 @@ class Album {
         self.artworkUrl100 = artworkUrl100
         self.genres = genres
         self.url = url
-        self.index = index 
+        self.index = index
+        self.artworkImage = UIImage(data: try! Data(contentsOf: URL(string: artworkUrl100)!))!
+        self.bgURLSession = nil 
     }
 }

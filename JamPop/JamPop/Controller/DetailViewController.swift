@@ -10,6 +10,8 @@ import UIKit
 import AVKit
 import AVFoundation
 
+
+
 class DetailViewController: UIViewController {
 
     @IBOutlet weak var detailDescriptionLabel: UILabel!
@@ -24,6 +26,7 @@ class DetailViewController: UIViewController {
     let downloadService = DownloadService()
     var player: AVPlayer!
     var playerViewController: AVPlayerViewController!
+    //var existingConfigs: [String: URLSession] = [:]
     
     // Get local file path: download task stores tune here; AV player plays it.
     let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
@@ -34,8 +37,23 @@ class DetailViewController: UIViewController {
     // Note the lazy creation of downloadsSession: this lets you delay the creation of the session until after the view controller is initialized, which allows you to pass self as the delegate parameter to the session initializer.
     lazy var downloadsSession: URLSession = {
         //let configuration = URLSessionConfiguration.default
-        let configuration = URLSessionConfiguration.background(withIdentifier: "bgSessionConfiguration")
-        return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        let configIdentifier = "bgSessionConfiguration" + (detailItem?.name)!
+//        let keys = existingConfigs.keys
+//        var exists: Bool = false
+//        for item in keys {
+//            let curItem = item
+//            if configIdentifier.contains(find: item) {
+//                return existingConfigs[configIdentifier]!
+//            }
+//        }
+        
+        let configuration = URLSessionConfiguration.background(withIdentifier: configIdentifier)
+        let urlSession = URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
+        
+        //existingConfigs.updateValue(urlSession, forKey: configIdentifier)
+        return urlSession
+        //let configuration = URLSessionConfiguration.background(withIdentifier: configIdentifier)
+        //return URLSession(configuration: configuration, delegate: self, delegateQueue: nil)
     }()
     
     func playDownload(_ track: Track) {
@@ -61,6 +79,14 @@ class DetailViewController: UIViewController {
     func configureView() {
         // Update the user interface for the detail item.
         if let detail = detailItem {
+            if detail.bgURLSession == nil {
+                detail.bgURLSession = downloadsSession
+                downloadService.downloadsSession = detail.bgURLSession
+            } else {
+                downloadService.downloadsSession = detail.bgURLSession
+            }
+            
+            
             if let label = detailDescriptionLabel {
                 label.text = detail.name
             }
@@ -81,10 +107,13 @@ class DetailViewController: UIViewController {
             let searchText = detail.name
             
             UIApplication.shared.isNetworkActivityIndicatorVisible = true
-            queryService.getSearchResults(searchTerm: searchText) { results, errorMessage in
+            queryService.getSearchResults(searchTerm: searchText, crossTerm: detail.artistName) { results, errorMessage in
                 UIApplication.shared.isNetworkActivityIndicatorVisible = false
                 if let results = results {
+                    
                     self.searchResults = results
+                    
+                    
 //                    print("\n<-- -->\n")
 //                    print("\(String(describing: results))")
 //                    print("\n<-- --> \n")
@@ -95,6 +124,8 @@ class DetailViewController: UIViewController {
             }
         }
     }
+    
+
     
     func position(for bar: UIBarPositioning) -> UIBarPosition {
         return .topAttached
@@ -107,7 +138,8 @@ class DetailViewController: UIViewController {
         
         // Do any additional setup after loading the view, typically from a nib.
         configureView()
-        downloadService.downloadsSession = downloadsSession
+        
+        //downloadService.downloadsSession = downloadsSession
     }
 
     override func didReceiveMemoryWarning() {
