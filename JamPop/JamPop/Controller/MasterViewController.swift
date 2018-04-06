@@ -20,6 +20,8 @@ class MasterViewController: UITableViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
+        //navigationItem.leftBarButtonItem?.tintColor = UIColor.lightText
+        //detailViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.lightText
         self.tableView.rowHeight = 100.0 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         queryService.getAlbumResults() { results, errorMessage in
@@ -33,10 +35,12 @@ class MasterViewController: UITableViewController {
         }
 
         let addButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(insertNewObject(_:)))
+        //addButton.tintColor = UIColor.lightText
         navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            
         }
     }
 
@@ -77,6 +81,7 @@ class MasterViewController: UITableViewController {
                 controller.detailItem = object
                 controller.navigationItem.leftBarButtonItem = splitViewController?.displayModeButtonItem
                 controller.navigationItem.leftItemsSupplementBackButton = true
+                
             }
         }
     }
@@ -103,7 +108,8 @@ class MasterViewController: UITableViewController {
         cell.detailTextLabel!.text = object.artistName
         //let imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
         
-        let image = UIImage(data: try! Data(contentsOf: URL(string: object.artworkUrl100)!))!
+        //let image = UIImage(data: try! Data(contentsOf: URL(string: object.artworkUrl100)!))!
+        let image = object.artworkImage
         //imageView.image = image
         //Just add imageView as subview of cell
         //cell.addSubview(imageView)
@@ -134,7 +140,7 @@ class MasterViewController: UITableViewController {
     func colorForIndex(index: Int) -> UIColor {
         let itemCount = objects.count - 1
         let color = (CGFloat(index) / CGFloat(itemCount)) * 0.6
-        return UIColor(red: 0.0, green: color, blue: 1.0, alpha: 1.0)
+        return UIColor(red: 0.0, green: color, blue: 0.5, alpha: 1.0)
     }
     
 //    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,

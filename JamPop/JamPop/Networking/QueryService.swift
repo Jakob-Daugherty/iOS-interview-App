@@ -9,6 +9,15 @@
 import Foundation
 import UIKit
 
+extension String {
+    func contains(find: String) -> Bool{
+        return self.range(of: find) != nil
+    }
+    func containsIgnoringCase(find: String) -> Bool{
+        return self.range(of: find, options: .caseInsensitive) != nil
+    }
+}
+
 // Runs query data task, and stores results in array of Albums
 class QueryService {
     
@@ -27,7 +36,7 @@ class QueryService {
     var artTask: URLSessionDataTask?
     var trackTask: URLSessionDataTask?
     
-    func getSearchResults(searchTerm: String, completion: @escaping TrackQueryResult) {
+    func getSearchResults(searchTerm: String, crossTerm: String, completion: @escaping TrackQueryResult) {
         // 1 - For a new user query, you can cancel the data task if it already exists, because you want to resue the data task object for this new query.
         trackTask?.cancel()
         // 2 - To include the user's search string in the query URL, you create a URLComponents object from the iTunes Search base URL, then set its query string: this ensures that characters in the search string are properly escaped.
@@ -41,7 +50,7 @@ class QueryService {
                 if let error = error {
                     self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
                 } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                    self.updateSearchResults(data)
+                    self.updateSearchResults(data, crossTerm: crossTerm)
                     // 6 - You switch the main queue to pass tracks to the completion handler in SearchVC+SearchBarDelegate.swift
                     DispatchQueue.main.async {
                         completion(self.tracks, self.errorMessage)
@@ -53,7 +62,7 @@ class QueryService {
         }
     }
     
-    fileprivate func updateSearchResults(_ data: Data) {
+    fileprivate func updateSearchResults(_ data: Data, crossTerm: String) {
         var response: JSONDictionary?
         tracks.removeAll()
         
@@ -75,8 +84,12 @@ class QueryService {
                 let previewURL = URL(string: previewURLString),
                 let name = trackDictionary["trackName"] as? String,
                 let artist = trackDictionary["artistName"] as? String {
-                tracks.append(Track(name: name, artist: artist, previewURL: previewURL, index: index))
-                index += 1
+                if artist.contains(find: crossTerm){
+                    tracks.append(Track(name: name, artist: artist, previewURL: previewURL, index: index))
+                    index += 1
+                }
+                //tracks.append(Track(name: name, artist: artist, previewURL: previewURL, index: index))
+                //index += 1
             } else {
                 errorMessage += "Problem parsing trackDictionary\n"
             }
