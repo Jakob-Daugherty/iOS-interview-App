@@ -25,7 +25,8 @@ class Album {
     let genres: [Genre]
     let url: URL
     let index: Int
-    let artworkImage: UIImage
+    var artTask: URLSessionDataTask?
+    var artworkImage: UIImage?
     var bgURLSession: URLSession?
     
     init(artistName: String, id: Int, releaseDate: String, name: String, kind: String, copyright: String, artistId: Int, artistUrl: URL, artworkUrl100: String, genres: [Genre], url: URL, index: Int) {
@@ -42,6 +43,28 @@ class Album {
         self.url = url
         self.index = index
         self.artworkImage = UIImage(data: try! Data(contentsOf: URL(string: artworkUrl100)!))!
-        self.bgURLSession = nil 
+        self.bgURLSession = nil
+    }
+    
+    func getAlbumArt() -> UIImage? {
+        if (artworkImage != nil) {
+            return artworkImage
+        }
+        
+        artTask?.cancel()
+        if var urlComponents = URLComponents(string: artworkUrl100 ) {
+            guard let url = urlComponents.url else { return nil }
+            let defaultSession = URLSession(configuration: .default)
+            
+//            artTask = defaultSession.dataTask(with: url) { data, response, error in defer { self.artTask = nil}
+//                if let error = error {
+////                    self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
+//                } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
+//                    self.artworkImage = UIImage(data: data)
+//                }
+//            }
+        }
+        artTask?.resume()
+        return self.artworkImage
     }
 }

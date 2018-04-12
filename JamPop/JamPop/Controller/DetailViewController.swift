@@ -113,10 +113,10 @@ class DetailViewController: UIViewController {
                     
                     self.searchResults = results
                     
-                    
 //                    print("\n<-- -->\n")
 //                    print("\(String(describing: results))")
 //                    print("\n<-- --> \n")
+                    
                     self.detailTableView.reloadData()
                     //self.detailTableView.setContentOffset(CGPoint.zero, animated: false)
                 }
