@@ -29,6 +29,8 @@
 		EFDEB2E52073EC840042338B /* DetailVC+URLSessionDelegates.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */; };
 		EFDEB2E72073EDA90042338B /* DownloadService.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2E62073EDA90042338B /* DownloadService.swift */; };
 		EFDEB2EB2073FD010042338B /* DetailTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */; };
+		EFF134C6207FC53E0040E7F5 /* Init-Model.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EFF134C4207FC53E0040E7F5 /* Init-Model.xcdatamodeld */; };
+		EFF134C8207FCD030040E7F5 /* DataController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFF134C7207FCD030040E7F5 /* DataController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -79,6 +81,8 @@
 		EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DetailVC+URLSessionDelegates.swift"; sourceTree = "<group>"; };
 		EFDEB2E62073EDA90042338B /* DownloadService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadService.swift; sourceTree = "<group>"; };
 		EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailTableViewController.swift; sourceTree = "<group>"; };
+		EFF134C5207FC53E0040E7F5 /* Init-Model.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = "Init-Model.xcdatamodel"; sourceTree = "<group>"; };
+		EFF134C7207FCD030040E7F5 /* DataController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -135,6 +139,7 @@
 				EFCA82DC206BEFC100A210BC /* DetailViewController.swift */,
 				EFDEB2E42073EC840042338B /* DetailVC+URLSessionDelegates.swift */,
 				EFDEB2EA2073FD010042338B /* DetailTableViewController.swift */,
+				EFF134C7207FCD030040E7F5 /* DataController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -187,6 +192,7 @@
 		EFCA82D7206BEFC100A210BC /* JamPop */ = {
 			isa = PBXGroup;
 			children = (
+				EFF134C3207FC4F30040E7F5 /* Core-Data */,
 				EFDEB2D32072CCF90042338B /* View */,
 				EF4B216A2072C1ED000E8280 /* Networking */,
 				EF4B21692072C1D3000E8280 /* Model */,
@@ -221,6 +227,14 @@
 				EFDEB2DE2073EBA80042338B /* TrackCell.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		EFF134C3207FC4F30040E7F5 /* Core-Data */ = {
+			isa = PBXGroup;
+			children = (
+				EFF134C4207FC53E0040E7F5 /* Init-Model.xcdatamodeld */,
+			);
+			path = "Core-Data";
 			sourceTree = "<group>";
 		};
 		FD659B97F549BED85C7450B8 /* Frameworks */ = {
@@ -424,11 +438,13 @@
 			buildActionMask = 2147483647;
 			files = (
 				EFCA82DD206BEFC100A210BC /* DetailViewController.swift in Sources */,
+				EFF134C6207FC53E0040E7F5 /* Init-Model.xcdatamodeld in Sources */,
 				EFDEB2E72073EDA90042338B /* DownloadService.swift in Sources */,
 				EFDEB2E12073EBFA0042338B /* Track.swift in Sources */,
 				EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */,
 				EFDEB2E52073EC840042338B /* DetailVC+URLSessionDelegates.swift in Sources */,
 				EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */,
+				EFF134C8207FCD030040E7F5 /* DataController.swift in Sources */,
 				EFDEB2EB2073FD010042338B /* DetailTableViewController.swift in Sources */,
 				EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */,
 				EFDEB2DD2072EC300042338B /* QueryService.swift in Sources */,
@@ -737,6 +753,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		EFF134C4207FC53E0040E7F5 /* Init-Model.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EFF134C5207FC53E0040E7F5 /* Init-Model.xcdatamodel */,
+			);
+			currentVersion = EFF134C5207FC53E0040E7F5 /* Init-Model.xcdatamodel */;
+			path = "Init-Model.xcdatamodeld";
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = EFCA82CD206BEFC100A210BC /* Project object */;
 }
