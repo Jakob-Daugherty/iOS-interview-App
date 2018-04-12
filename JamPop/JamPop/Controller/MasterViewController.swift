@@ -109,7 +109,7 @@ class MasterViewController: UITableViewController {
         //let imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
         
         //let image = UIImage(data: try! Data(contentsOf: URL(string: object.artworkUrl100)!))!
-        let image = object.artworkImage
+        let image = object.getAlbumArt()
         //imageView.image = image
         //Just add imageView as subview of cell
         //cell.addSubview(imageView)

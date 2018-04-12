@@ -96,24 +96,6 @@ class QueryService {
         }
     }
     
-    func getAlbumArt(_ url: String) -> UIImage? {
-        var image: UIImage?
-        artTask?.cancel()
-        if var urlComponents = URLComponents(string: url ) {
-            guard let url = urlComponents.url else { return nil }
-            artTask = defaultSession.dataTask(with: url) { data, response, error in defer { self.artTask = nil}
-                if let error = error {
-                    self.errorMessage += "DataTask error: " + error.localizedDescription + "\n"
-                } else if let data = data, let response = response as? HTTPURLResponse, response.statusCode == 200 {
-                    image = UIImage(data: data)
-                    
-                    }
-                }
-            }
-            artTask?.resume()
-        return image
-        }
-    
     
     func getAlbumResults(completion: @escaping QueryResult) {
         // 1
