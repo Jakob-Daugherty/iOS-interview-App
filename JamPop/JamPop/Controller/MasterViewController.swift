@@ -9,15 +9,19 @@
 import UIKit
 import AVKit
 import AVFoundation
+import Foundation
+import CoreData
 
 class MasterViewController: UITableViewController {
     
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
     let queryService = QueryService()
+    var dataController: DataController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
         //navigationItem.leftBarButtonItem?.tintColor = UIColor.lightText
@@ -40,6 +44,11 @@ class MasterViewController: UITableViewController {
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
+            //let firstController = controllers[0]
+            
+            //print("count-> \(controllers.count)")
+            //print("\(String(describing: firstController))")
+            
             
         }
     }
@@ -104,9 +113,15 @@ class MasterViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
 
         let object = objects[indexPath.row] as! Album
+        //let albumInfo = NSEntityDescription.insertNewObject(forEntityName: "AlbumInfo", into: dataController)
         cell.textLabel!.text = object.name
         cell.detailTextLabel!.text = object.artistName
         //let imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
+        //let albumInfo = NSEntityDescription.insertNewObject(forEntityName: "AlbumInfo", into: (dataController?.managedObjectContext)!)
+        //albumInfo.setValue(object.name, forKey: "name")
+        //albumInfo.setValue(object.artistName, forKey: "artist")
+        //albumInfo.didSave()
+        //print("\n<-- album did save -->\n")
         
         //let image = UIImage(data: try! Data(contentsOf: URL(string: object.artworkUrl100)!))!
         let image = object.getAlbumArt()

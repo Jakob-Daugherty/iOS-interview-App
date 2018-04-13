@@ -7,9 +7,12 @@
 //
 
 import Foundation
+import UIKit
+import CoreData
 
-struct AlbumInfo {
-    var name: String?
-    var artist: String?
-    //var coverArt: 
-}
+//class AlbumInfo: NSManagedObject {
+//    @NSManaged var name: String?
+//    @NSManaged var artist: String?
+//    @NSManaged var coverArt: String?
+//}
+
