@@ -11,6 +11,7 @@
 		EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B21632072AD34000E8280 /* ItunesRouter.swift */; };
 		EF4B21662072BEE1000E8280 /* AlbumInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF4B21652072BEE1000E8280 /* AlbumInfo.swift */; };
 		EF4B216C2072C2FF000E8280 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = EF4B216B2072C2FF000E8280 /* Default-568h@2x.png */; };
+		EF4B5B94208120810073986B /* JamPopModel.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = EF4B5B92208120810073986B /* JamPopModel.xcdatamodeld */; };
 		EFCA82D9206BEFC100A210BC /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82D8206BEFC100A210BC /* AppDelegate.swift */; };
 		EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82DA206BEFC100A210BC /* MasterViewController.swift */; };
 		EFCA82DD206BEFC100A210BC /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA82DC206BEFC100A210BC /* DetailViewController.swift */; };
@@ -57,6 +58,7 @@
 		EF4B21632072AD34000E8280 /* ItunesRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ItunesRouter.swift; sourceTree = "<group>"; };
 		EF4B21652072BEE1000E8280 /* AlbumInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlbumInfo.swift; sourceTree = "<group>"; };
 		EF4B216B2072C2FF000E8280 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
+		EF4B5B93208120810073986B /* JamPopModel.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JamPopModel.xcdatamodel; sourceTree = "<group>"; };
 		EFCA82D5206BEFC100A210BC /* JamPop.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JamPop.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFCA82D8206BEFC100A210BC /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFCA82DA206BEFC100A210BC /* MasterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MasterViewController.swift; sourceTree = "<group>"; };
@@ -233,6 +235,7 @@
 			isa = PBXGroup;
 			children = (
 				EFF134C4207FC53E0040E7F5 /* Init-Model.xcdatamodeld */,
+				EF4B5B92208120810073986B /* JamPopModel.xcdatamodeld */,
 			);
 			path = "Core-Data";
 			sourceTree = "<group>";
@@ -443,6 +446,7 @@
 				EFDEB2E12073EBFA0042338B /* Track.swift in Sources */,
 				EFCA82DB206BEFC100A210BC /* MasterViewController.swift in Sources */,
 				EFDEB2E52073EC840042338B /* DetailVC+URLSessionDelegates.swift in Sources */,
+				EF4B5B94208120810073986B /* JamPopModel.xcdatamodeld in Sources */,
 				EF4B21642072AD34000E8280 /* ItunesRouter.swift in Sources */,
 				EFF134C8207FCD030040E7F5 /* DataController.swift in Sources */,
 				EFDEB2EB2073FD010042338B /* DetailTableViewController.swift in Sources */,
@@ -755,6 +759,16 @@
 /* End XCConfigurationList section */
 
 /* Begin XCVersionGroup section */
+		EF4B5B92208120810073986B /* JamPopModel.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				EF4B5B93208120810073986B /* JamPopModel.xcdatamodel */,
+			);
+			currentVersion = EF4B5B93208120810073986B /* JamPopModel.xcdatamodel */;
+			path = JamPopModel.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
 		EFF134C4207FC53E0040E7F5 /* Init-Model.xcdatamodeld */ = {
 			isa = XCVersionGroup;
 			children = (
