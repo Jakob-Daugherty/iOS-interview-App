@@ -101,7 +101,7 @@ class DetailViewController: UIViewController {
                 artView.image = image
             }
             if let genreLabel = detailGenreLabel {
-                let genre = detail.genres.first
+                let genre = detail.genres?.first
                 genreLabel.text = genre?.name
             }
             let searchText = detail.name
