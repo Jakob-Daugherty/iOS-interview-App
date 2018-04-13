@@ -17,11 +17,13 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
     let queryService = QueryService()
-    var dataController: DataController?
+//    var dataController: DataController?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+        let context = appDelegate.persistentContainer.viewContext
+        let albumEntity = NSEntityDescription.entity(forEntityName: "SavedAlbum", in: context)
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
         //navigationItem.leftBarButtonItem?.tintColor = UIColor.lightText
@@ -33,6 +35,42 @@ class MasterViewController: UITableViewController {
             if let results = results {
                 self.objects = results
                 self.tableView.reloadData()
+                
+                // <-- Start
+                for obj in self.objects {
+                    let newAlbum = NSManagedObject(entity: albumEntity!, insertInto: context)
+                    let curObj = obj as! Album
+                    newAlbum.setValue(curObj.name, forKey: "name")
+                    newAlbum.setValue(curObj.artistName, forKey: "artist")
+                    let curIndex = String(curObj.index)
+                    newAlbum.setValue(curIndex, forKey: "index")
+                    if curObj.artworkImage != nil {
+                        newAlbum.setValue(curObj.artworkUrl100, forKey: "artwork")
+                    }
+                    do {
+                        try context.save()
+                    } catch {
+                        print("Failed saving newAlbum")
+                    }
+                    
+                }
+                let albumRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SavedAlbum")
+                albumRequest.returnsObjectsAsFaults = false
+                do {
+                    let result = try context.fetch(albumRequest)
+                    for data in result as! [NSManagedObject] {
+                        print("\n <--")
+                        print( data.value(forKey: "index") as! String)
+                        print(data.value(forKey:"name") as! String)
+                        print(data.value(forKey: "artist") as! String)
+                        //print(data.value(forKey: "artwork") as! String)
+                        print("--> \n")
+                    }
+                } catch {
+                    print("Failed Fetch Albums")
+                }
+                // Ent -->
+                
                 //self.tableView.setContentOffset(CGPoint.zero, animated: false)
             }
             if !errorMessage.isEmpty { print("Search error: \n" + errorMessage) }
@@ -53,29 +91,63 @@ class MasterViewController: UITableViewController {
         }
         
         // <-- Start CoreData test implimentation -->
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let entity = NSEntityDescription.entity(forEntityName: "Users", in: context)
-        let newUser = NSManagedObject(entity: entity!, insertInto: context)
-        newUser.setValue("Jakob", forKey: "username")
-        newUser.setValue("1234", forKey: "password")
-        newUser.setValue("1", forKey: "age")
-        do {
-            try context.save()
-        } catch  {
-            print("Failed saving")
-        }
-        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
-        //request.predicate = NSPredicate(format: "age = %@", "12")
-        request.returnsObjectsAsFaults = false
-        do {
-            let result = try context.fetch(request)
-            for data in result as! [NSManagedObject] {
-                print(data.value(forKey: "username") as! String)
-            }
-        } catch  {
-            print("Failed")
-        }
+//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+//        let context = appDelegate.persistentContainer.viewContext
+//        let entity = NSEntityDescription.entity(forEntityName: "Users", in: context)
+//        let newUser = NSManagedObject(entity: entity!, insertInto: context)
+//        newUser.setValue("Jakob", forKey: "username")
+//        newUser.setValue("1234", forKey: "password")
+//        newUser.setValue("1", forKey: "age")
+//        do {
+//            try context.save()
+//        } catch  {
+//            print("Failed saving")
+//        }
+//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
+//        //request.predicate = NSPredicate(format: "age = %@", "12")
+//        request.returnsObjectsAsFaults = false
+//        do {
+//            let result = try context.fetch(request)
+//            for data in result as! [NSManagedObject] {
+//                print(data.value(forKey: "username") as! String)
+//            }
+//        } catch  {
+//            print("Failed")
+//        }
+        
+        //let albumEntity = NSEntityDescription.entity(forEntityName: "SavedAlbum", in: context)
+//        for obj in self.objects {
+//            let newAlbum = NSManagedObject(entity: albumEntity!, insertInto: context)
+//            let curObj = obj as! Album
+//            newAlbum.setValue(curObj.name, forKey: "name")
+//            newAlbum.setValue(curObj.artistName, forKey: "artist")
+//            let curIndex = String(curObj.index)
+//            newAlbum.setValue(curIndex, forKey: "index")
+//            if curObj.artworkImage != nil {
+//                newAlbum.setValue(curObj.artworkUrl100, forKey: "artwork")
+//            }
+//            do {
+//                try context.save()
+//            } catch {
+//                print("Failed saving newAlbum")
+//            }
+//
+//        }
+//        let albumRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SavedAlbum")
+//        albumRequest.returnsObjectsAsFaults = false
+//        do {
+//            let result = try context.fetch(albumRequest)
+//            for data in result as! [NSManagedObject] {
+//                print("\n <--")
+//                print( data.value(forKey: "index") as! String)
+//                print(data.value(forKey:"name") as! String)
+//                print(data.value(forKey: "artist") as! String)
+//                print(data.value(forKey: "artwork") as! String)
+//                print("--> \n")
+//            }
+//        } catch {
+//            print("Failed Fetch Albums")
+//        }
         // <-- End -->
     }
 
