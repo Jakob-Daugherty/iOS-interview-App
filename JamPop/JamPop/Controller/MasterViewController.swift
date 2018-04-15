@@ -17,17 +17,15 @@ class MasterViewController: UITableViewController {
     var detailViewController: DetailViewController? = nil
     var objects = [Any]()
     let queryService = QueryService()
-//    var dataController: DataController?
+    var appDelegate: AppDelegate?
+
+    // moc
+//    var context : NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        let context = appDelegate.persistentContainer.viewContext
-        let albumEntity = NSEntityDescription.entity(forEntityName: "SavedAlbum", in: context)
         // Do any additional setup after loading the view, typically from a nib.
         navigationItem.leftBarButtonItem = editButtonItem
-        //navigationItem.leftBarButtonItem?.tintColor = UIColor.lightText
-        //detailViewController?.navigationItem.leftBarButtonItem?.tintColor = UIColor.lightText
         self.tableView.rowHeight = 100.0 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         queryService.getAlbumResults() { results, errorMessage in
@@ -35,120 +33,15 @@ class MasterViewController: UITableViewController {
             if let results = results {
                 self.objects = results
                 self.tableView.reloadData()
-                
-                // <-- Start
-                for obj in self.objects {
-                    let newAlbum = NSManagedObject(entity: albumEntity!, insertInto: context)
-                    let curObj = obj as! Album
-                    newAlbum.setValue(curObj.name, forKey: "name")
-                    newAlbum.setValue(curObj.artistName, forKey: "artist")
-                    let curIndex = String(curObj.index)
-                    newAlbum.setValue(curIndex, forKey: "index")
-                    if curObj.artworkImage != nil {
-                        newAlbum.setValue(curObj.artworkUrl100, forKey: "artwork")
-                    }
-                    do {
-                        try context.save()
-                    } catch {
-                        print("Failed saving newAlbum")
-                    }
-                    
-                }
-                let albumRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SavedAlbum")
-                albumRequest.returnsObjectsAsFaults = false
-                do {
-                    let result = try context.fetch(albumRequest)
-                    for data in result as! [NSManagedObject] {
-                        print("\n <--")
-                        print( data.value(forKey: "index") as! String)
-                        print(data.value(forKey:"name") as! String)
-                        print(data.value(forKey: "artist") as! String)
-                        //print(data.value(forKey: "artwork") as! String)
-                        print("--> \n")
-                    }
-                } catch {
-                    print("Failed Fetch Albums")
-                }
-                // Ent -->
-                
-                //self.tableView.setContentOffset(CGPoint.zero, animated: false)
             }
             if !errorMessage.isEmpty { print("Search error: \n" + errorMessage) }
         }
-
         let addButton = UIBarButtonItem(barButtonSystemItem: .refresh, target: self, action: #selector(insertNewObject(_:)))
-        //addButton.tintColor = UIColor.lightText
         navigationItem.rightBarButtonItem = addButton
         if let split = splitViewController {
             let controllers = split.viewControllers
             detailViewController = (controllers[controllers.count-1] as! UINavigationController).topViewController as? DetailViewController
-            //let firstController = controllers[0]
-            
-            //print("count-> \(controllers.count)")
-            //print("\(String(describing: firstController))")
-            
-            
         }
-        
-        // <-- Start CoreData test implimentation -->
-//        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-//        let context = appDelegate.persistentContainer.viewContext
-//        let entity = NSEntityDescription.entity(forEntityName: "Users", in: context)
-//        let newUser = NSManagedObject(entity: entity!, insertInto: context)
-//        newUser.setValue("Jakob", forKey: "username")
-//        newUser.setValue("1234", forKey: "password")
-//        newUser.setValue("1", forKey: "age")
-//        do {
-//            try context.save()
-//        } catch  {
-//            print("Failed saving")
-//        }
-//        let request = NSFetchRequest<NSFetchRequestResult>(entityName: "Users")
-//        //request.predicate = NSPredicate(format: "age = %@", "12")
-//        request.returnsObjectsAsFaults = false
-//        do {
-//            let result = try context.fetch(request)
-//            for data in result as! [NSManagedObject] {
-//                print(data.value(forKey: "username") as! String)
-//            }
-//        } catch  {
-//            print("Failed")
-//        }
-        
-        //let albumEntity = NSEntityDescription.entity(forEntityName: "SavedAlbum", in: context)
-//        for obj in self.objects {
-//            let newAlbum = NSManagedObject(entity: albumEntity!, insertInto: context)
-//            let curObj = obj as! Album
-//            newAlbum.setValue(curObj.name, forKey: "name")
-//            newAlbum.setValue(curObj.artistName, forKey: "artist")
-//            let curIndex = String(curObj.index)
-//            newAlbum.setValue(curIndex, forKey: "index")
-//            if curObj.artworkImage != nil {
-//                newAlbum.setValue(curObj.artworkUrl100, forKey: "artwork")
-//            }
-//            do {
-//                try context.save()
-//            } catch {
-//                print("Failed saving newAlbum")
-//            }
-//
-//        }
-//        let albumRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "SavedAlbum")
-//        albumRequest.returnsObjectsAsFaults = false
-//        do {
-//            let result = try context.fetch(albumRequest)
-//            for data in result as! [NSManagedObject] {
-//                print("\n <--")
-//                print( data.value(forKey: "index") as! String)
-//                print(data.value(forKey:"name") as! String)
-//                print(data.value(forKey: "artist") as! String)
-//                print(data.value(forKey: "artwork") as! String)
-//                print("--> \n")
-//            }
-//        } catch {
-//            print("Failed Fetch Albums")
-//        }
-        // <-- End -->
     }
 
     override func viewWillAppear(_ animated: Bool) {
@@ -163,16 +56,12 @@ class MasterViewController: UITableViewController {
 
     @objc
     func insertNewObject(_ sender: Any) {
-//        objects.insert(NSDate(), at: 0)
-//        let indexPath = IndexPath(row: 0, section: 0)
-//        tableView.insertRows(at: [indexPath], with: .automatic)
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
         queryService.getAlbumResults() { results, errorMessage in
             UIApplication.shared.isNetworkActivityIndicatorVisible = false
             if let results = results {
                 self.objects = results
                 self.tableView.reloadData()
-                //self.tableView.setContentOffset(CGPoint.zero, animated: false)
             }
             if !errorMessage.isEmpty { print("Search error: \n" + errorMessage) }
         }
@@ -209,30 +98,14 @@ class MasterViewController: UITableViewController {
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
-
         let object = objects[indexPath.row] as! Album
-        //let albumInfo = NSEntityDescription.insertNewObject(forEntityName: "AlbumInfo", into: dataController)
         cell.textLabel!.text = object.name
         cell.detailTextLabel!.text = object.artistName
-        //let imageView = UIImageView(frame: CGRectMake(10, 10, cell.frame.width - 10, cell.frame.height - 10))
-        //let albumInfo = NSEntityDescription.insertNewObject(forEntityName: "AlbumInfo", into: (dataController?.managedObjectContext)!)
-        //albumInfo.setValue(object.name, forKey: "name")
-        //albumInfo.setValue(object.artistName, forKey: "artist")
-        //albumInfo.didSave()
-        //print("\n<-- album did save -->\n")
         
         //let image = UIImage(data: try! Data(contentsOf: URL(string: object.artworkUrl100)!))!
         let image = object.getAlbumArt()
-        //imageView.image = image
-        //Just add imageView as subview of cell
-        //cell.addSubview(imageView)
-        //cell.sendSubview(toBack: imageView)
-        //cell.backgroundView = UIView()
-        //cell.backgroundView!.addSubview(imageView)
-        //let image = queryService.getAlbumArt(object.artworkUrl100)
         cell.imageView?.image = image
         cell.backgroundColor = colorForIndex(index: indexPath.row)
-//        cell.imageView?.image = object.artworkUrl100.
         return cell
     }
 
@@ -255,12 +128,5 @@ class MasterViewController: UITableViewController {
         let color = (CGFloat(index) / CGFloat(itemCount)) * 0.6
         return UIColor(red: 0.0, green: color, blue: 0.5, alpha: 1.0)
     }
-    
-//    func tableView(tableView: UITableView, willDisplayCell cell: UITableViewCell,
-//                            forRowAtIndexPath indexPath: NSIndexPath) {
-//        cell.backgroundColor = colorForIndex(index: indexPath.row)
-//    }
-
 
 }
-

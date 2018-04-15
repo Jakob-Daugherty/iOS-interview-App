@@ -2,9 +2,22 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="SavedAlbum" representedClassName="SavedAlbum" syncable="YES" codeGenerationType="class">
         <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
-        <attribute name="artwork" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="artwork" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="index" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="TopTen" representedClassName="TopTen" syncable="YES" codeGenerationType="class">
+        <attribute name="modDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
+        <attribute name="tt0" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt1" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt2" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt3" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt4" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt5" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt6" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt7" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt8" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tt9" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <entity name="Users" representedClassName="Users" syncable="YES" codeGenerationType="class">
         <attribute name="age" optional="YES" attributeType="String" syncable="YES"/>
@@ -12,7 +25,8 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Users" positionX="-63" positionY="-18" width="128" height="90"/>
         <element name="SavedAlbum" positionX="-54" positionY="18" width="128" height="105"/>
+        <element name="TopTen" positionX="-54" positionY="27" width="128" height="210"/>
+        <element name="Users" positionX="-63" positionY="-18" width="128" height="90"/>
     </elements>
 </model>
