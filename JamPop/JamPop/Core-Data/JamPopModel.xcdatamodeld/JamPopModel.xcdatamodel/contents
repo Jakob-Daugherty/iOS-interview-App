@@ -1,10 +1,19 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13533" systemVersion="17E199" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
+    <entity name="FullRes" representedClassName=".FullRes" syncable="YES">
+        <attribute name="imageData" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
+        <relationship name="thumbnail" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Thumbnail" inverseName="fullRes" inverseEntity="Thumbnail" syncable="YES"/>
+    </entity>
     <entity name="SavedAlbum" representedClassName="SavedAlbum" syncable="YES" codeGenerationType="class">
         <attribute name="artist" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="artwork" optional="YES" attributeType="Binary" allowsExternalBinaryDataStorage="YES" syncable="YES"/>
         <attribute name="index" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
+    <entity name="Thumbnail" representedClassName=".Thumbnail" syncable="YES">
+        <attribute name="id" optional="YES" attributeType="Double" defaultValueString="0.0" usesScalarValueType="YES" syncable="YES"/>
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <relationship name="fullRes" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="FullRes" inverseName="thumbnail" inverseEntity="FullRes" syncable="YES"/>
     </entity>
     <entity name="TopTen" representedClassName="TopTen" syncable="YES" codeGenerationType="class">
         <attribute name="modDate" optional="YES" attributeType="Date" usesScalarValueType="NO" syncable="YES"/>
@@ -25,8 +34,10 @@
         <attribute name="username" optional="YES" attributeType="String" syncable="YES"/>
     </entity>
     <elements>
-        <element name="SavedAlbum" positionX="-54" positionY="18" width="128" height="105"/>
-        <element name="TopTen" positionX="-54" positionY="27" width="128" height="210"/>
-        <element name="Users" positionX="-63" positionY="-18" width="128" height="90"/>
+        <element name="SavedAlbum" positionX="-108" positionY="-0" width="128" height="105"/>
+        <element name="TopTen" positionX="106" positionY="-3" width="128" height="210"/>
+        <element name="Users" positionX="-56" positionY="180" width="128" height="90"/>
+        <element name="FullRes" positionX="-110" positionY="-126" width="128" height="73"/>
+        <element name="Thumbnail" positionX="133" positionY="-117" width="128" height="88"/>
     </elements>
 </model>

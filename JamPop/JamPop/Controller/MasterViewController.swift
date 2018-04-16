@@ -18,13 +18,24 @@ class MasterViewController: UITableViewController {
     var objects = [Any]()
     let queryService = QueryService()
     var appDelegate: AppDelegate?
+    var frameSize: CGSize?
 
-    // moc
-//    var context : NSManagedObjectContext?
+    /// A dispatch queue to convert images to jpeg and to thumbnail size
+    let imageProcessingQueue = DispatchQueue(label: "imageProcessingQueue", attributes: DispatchQueue.Attributes.concurrent)
+    
+    /// A dispatch queue for the Core Data managed context
+    let coreDataQueue = DispatchQueue(label: "coreDataQueue")
+    
+    /// The Core Data managed context
+    var managedContext : NSManagedObjectContext?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
+        self.frameSize = view.frame.size
+        //<-- I -->
+        coreDataSetup()
+        //<-- END I -->
         navigationItem.leftBarButtonItem = editButtonItem
         self.tableView.rowHeight = 100.0 
         UIApplication.shared.isNetworkActivityIndicatorVisible = true
@@ -101,10 +112,19 @@ class MasterViewController: UITableViewController {
         let object = objects[indexPath.row] as! Album
         cell.textLabel!.text = object.name
         cell.detailTextLabel!.text = object.artistName
-        
-        //let image = UIImage(data: try! Data(contentsOf: URL(string: object.artworkUrl100)!))!
-        let image = object.getAlbumArt()
-        cell.imageView?.image = image
+        //let image = object.getAlbumArt()
+        if object.artworkImageId != nil {
+            // load image from core data store
+        } else {
+            // get image from web and save to core data
+            let image = object.getAlbumArt()
+            cell.imageView?.image = image
+            let date : Double = Date().timeIntervalSince1970
+            prepareImageForSaving(image!, date)
+            object.artworkImageId = date
+        }
+        //let image = object.getAlbumArt()
+//        cell.imageView?.image = image
         cell.backgroundColor = colorForIndex(index: indexPath.row)
         return cell
     }

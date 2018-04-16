@@ -49,6 +49,7 @@ class Album {
             self.tracks = newValue
         }
     }
+    var artworkImageId: Double?
     
     init(artistName: String, id: Int, releaseDate: String, name: String, kind: String, copyright: String, artistId: Int, artistUrl: URL, artworkUrl100: String, genres: [Genre], url: URL, index: Int) {
         self.artistName = artistName
@@ -66,9 +67,13 @@ class Album {
         //self.artworkImage = UIImage(data: try! Data(contentsOf: URL(string: artworkUrl100)!))!
         self.artworkImage = nil
         self.bgURLSession = nil
+        self.artworkImageId = nil 
     }
     
     func getAlbumArt() -> UIImage? {
+        // Try loading from data store
+        
+        // End
         return UIImage(data: try! Data(contentsOf: URL(string: artworkUrl100)!))!
 //        if (artworkImage != nil) {
 //            return artworkImage
